@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Calendar,
   Clock,
@@ -6,24 +6,101 @@ import {
   CheckCircle2,
   ChevronRight,
   Sparkles,
-  ShieldCheck,
-  Stethoscope
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
+import { api } from "../api";
+
+const defaultSpecialties = [
+  "Accident and emergency medicine",
+  "Allergology",
+  "Anaesthetics",
+  "Biological hematology",
+  "Cardiology",
+  "Child psychiatry",
+  "Clinical biology",
+  "Clinical chemistry",
+  "Clinical neurophysiology",
+  "Clinical radiology",
+  "Dental, oral and maxillo-facial surgery",
+  "Dermato-venerology",
+  "Dermatology",
+  "Endocrinology",
+  "Gastro-enterologic surgery",
+  "Gastroenterology",
+  "General hematology",
+  "General Practice",
+  "General surgery",
+  "Geriatrics",
+  "Immunology",
+  "Infectious diseases",
+  "Internal medicine",
+  "Laboratory medicine",
+  "Maxillo-facial surgery",
+  "Microbiology",
+  "Nephrology",
+  "Neuro-psychiatry",
+  "Neurology",
+  "Neurosurgery",
+  "Nuclear medicine",
+  "Obstetrics and gynecology",
+  "Occupational medicine",
+  "Ophthalmology",
+  "Orthopaedics",
+  "Otorhinolaryngology",
+  "Paediatric surgery",
+  "Paediatrics",
+  "Pathology",
+  "Pharmacology",
+  "Physical medicine and rehabilitation",
+  "Plastic surgery",
+  "Podiatric Medicine",
+  "Podiatric Surgery",
+  "Psychiatry",
+  "Public health and Preventive Medicine",
+  "Radiology",
+  "Radiotherapy",
+  "Respiratory medicine",
+  "Rheumatology",
+  "Stomatology",
+  "Thoracic surgery",
+  "Tropical medicine",
+  "Urology",
+  "Vascular surgery",
+  "Venereology"
+];
 
 export default function LandingPage({ onOpenAuth }) {
-  const specialtiesSample = [
-    "Cardiology",
-    "Dermatology",
-    "Neurology",
-    "Paediatrics",
-    "Orthopaedics",
-    "General Practice",
-    "Ophthalmology",
-    "Psychiatry",
-    "Endocrinology",
-    "Urology",
-    "Gastroenterology"
-  ];
+  const [showAllSpecialties, setShowAllSpecialties] = useState(false);
+  const [specialtiesList, setSpecialtiesList] = useState(defaultSpecialties);
+
+  useEffect(() => {
+    api.getSpecialties()
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setSpecialtiesList(data.map(d => d.sname));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const initialCount = 11;
+  const displayedSpecialties = showAllSpecialties
+    ? specialtiesList
+    : specialtiesList.slice(0, initialCount);
+  const remainingCount = Math.max(0, specialtiesList.length - initialCount);
+
+  const handleSpecialtyClick = (specialty) => {
+    onOpenAuth("login");
+  };
+
+  const handleScrollToSpecialties = () => {
+    const el = document.getElementById("specialties-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setShowAllSpecialties(true);
+  };
 
   return (
     <div className="landing-wrapper">
@@ -71,7 +148,13 @@ export default function LandingPage({ onOpenAuth }) {
       <section className="features-section">
         <div className="features-container">
           <div className="features-grid">
-            <div className="feature-item">
+            <div
+              className="feature-item feature-item-clickable"
+              onClick={() => onOpenAuth("login")}
+              role="button"
+              tabIndex={0}
+              title="Click to book consultation"
+            >
               <div className="feature-icon">
                 <Clock size={24} color="#0284c7" />
               </div>
@@ -79,7 +162,13 @@ export default function LandingPage({ onOpenAuth }) {
               <p>Real-time numbered token generation gives you an exact place in line.</p>
             </div>
 
-            <div className="feature-item">
+            <div
+              className="feature-item feature-item-clickable"
+              onClick={handleScrollToSpecialties}
+              role="button"
+              tabIndex={0}
+              title="Click to view all 56 medical specialties"
+            >
               <div className="feature-icon">
                 <Award size={24} color="#0d9488" />
               </div>
@@ -87,7 +176,13 @@ export default function LandingPage({ onOpenAuth }) {
               <p>Consult with certified specialist practitioners across every major clinical field.</p>
             </div>
 
-            <div className="feature-item">
+            <div
+              className="feature-item feature-item-clickable"
+              onClick={() => onOpenAuth("login")}
+              role="button"
+              tabIndex={0}
+              title="Click to get digital pass"
+            >
               <div className="feature-icon">
                 <CheckCircle2 size={24} color="#10b981" />
               </div>
@@ -97,24 +192,53 @@ export default function LandingPage({ onOpenAuth }) {
           </div>
 
           {/* Specialties Showcase */}
-          <div className="specialties-preview">
-            <h4>Certified Clinical Specialties:</h4>
+          <div className="specialties-preview" id="specialties-section">
+            <div className="specialties-header">
+              <h4>Certified Clinical Specialties ({specialtiesList.length}):</h4>
+              <button
+                type="button"
+                className="spec-toggle-link"
+                onClick={() => setShowAllSpecialties(prev => !prev)}
+              >
+                {showAllSpecialties ? "Show Fewer" : `View All (${specialtiesList.length})`}
+              </button>
+            </div>
+
             <div className="specialties-pills">
-              {specialtiesSample.map((spec, i) => (
-                <span key={i} className="spec-pill">
+              {displayedSpecialties.map((spec, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className="spec-pill spec-pill-btn"
+                  onClick={() => handleSpecialtyClick(spec)}
+                  title={`Click to book consultation in ${spec}`}
+                >
                   {spec}
-                </span>
+                </button>
               ))}
-              <span className="spec-pill spec-more">+45 More</span>
+
+              <button
+                type="button"
+                className="spec-pill spec-more"
+                onClick={() => setShowAllSpecialties(prev => !prev)}
+                title={showAllSpecialties ? "Show fewer specialties" : "Show all 56 specialties"}
+              >
+                {showAllSpecialties ? (
+                  <>
+                    <ChevronUp size={14} />
+                    <span>Show Less</span>
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown size={14} />
+                    <span>+{remainingCount} More</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="landing-footer">
-        <p>eDoc Doctor Appointment System • Full-Stack MERN Architecture</p>
-      </footer>
     </div>
   );
 }

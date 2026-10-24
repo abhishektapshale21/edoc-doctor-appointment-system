@@ -11,6 +11,13 @@ import "./App.css";
 function MainContent() {
   const { user, loading } = useAuth();
   const [authModal, setAuthModal] = useState(null); // 'login' | 'register' | null
+  const [dashKey, setDashKey] = useState(0);
+
+  const handleGoHome = () => {
+    setAuthModal(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setDashKey((prev) => prev + 1);
+  };
 
   if (loading) {
     return (
@@ -45,16 +52,19 @@ function MainContent() {
 
   return (
     <div className="app-container">
-      <Navbar onOpenAuth={(mode) => setAuthModal(mode)} />
+      <Navbar
+        onOpenAuth={(mode) => setAuthModal(mode)}
+        onGoHome={handleGoHome}
+      />
 
       {!user ? (
         <LandingPage onOpenAuth={(mode) => setAuthModal(mode)} />
       ) : user.role === "admin" ? (
-        <AdminDashboard />
+        <AdminDashboard key={dashKey} />
       ) : user.role === "doctor" ? (
-        <DoctorDashboard />
+        <DoctorDashboard key={dashKey} />
       ) : (
-        <PatientDashboard />
+        <PatientDashboard key={dashKey} />
       )}
 
       {authModal && (

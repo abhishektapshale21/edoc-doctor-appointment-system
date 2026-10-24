@@ -272,10 +272,48 @@ export default function AuthModal({ initialMode = "login", onClose }) {
                   </div>
                 </div>
 
+                {/* Quick Demo Fill Helper */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "8px 12px",
+                    background: "#f0f9ff",
+                    borderRadius: "8px",
+                    border: "1px solid #bae6fd",
+                    marginTop: "6px",
+                    marginBottom: "12px"
+                  }}
+                >
+                  <span style={{ fontSize: "0.8rem", color: "#0369a1", fontWeight: 500 }}>
+                    Demo login: <strong>{selectedRole}@edoc.com</strong> / <strong>123</strong>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLoginEmail(`${selectedRole}@edoc.com`);
+                      setLoginPassword("123");
+                    }}
+                    style={{
+                      background: "#0284c7",
+                      color: "#ffffff",
+                      border: "none",
+                      borderRadius: "6px",
+                      padding: "4px 10px",
+                      fontSize: "0.78rem",
+                      fontWeight: 600,
+                      cursor: "pointer"
+                    }}
+                  >
+                    ⚡ Auto-Fill
+                  </button>
+                </div>
+
                 <button
                   type="submit"
                   className="btn btn-primary"
-                  style={{ width: "100%", marginTop: "10px", padding: "12px" }}
+                  style={{ width: "100%", marginTop: "4px", padding: "12px" }}
                   disabled={loading}
                 >
                   {loading ? "Verifying Credentials..." : `Sign In as ${getRoleTitle(selectedRole)}`}
