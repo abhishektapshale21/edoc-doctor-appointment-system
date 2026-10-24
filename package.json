@@ -1,0 +1,14 @@
+{
+  "name": "edoc-mern-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server/src/index.js",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,magenta\" \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}

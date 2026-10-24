@@ -1,0 +1,390 @@
+{
+  "users": [
+    {
+      "id": "admin-1",
+      "email": "admin@edoc.com",
+      "password": "123",
+      "role": "admin",
+      "name": "Administrator",
+      "phone": "0112345678",
+      "nic": "000000000V",
+      "createdAt": "2026-10-24T16:49:09.045Z"
+    },
+    {
+      "id": "doc-1",
+      "email": "doctor@edoc.com",
+      "password": "123",
+      "role": "doctor",
+      "name": "Dr. Test Doctor",
+      "phone": "0110000000",
+      "nic": "123456789V",
+      "specialtyId": 5,
+      "specialtyName": "Cardiology",
+      "createdAt": "2026-10-24T16:49:09.051Z"
+    },
+    {
+      "id": "pat-1",
+      "email": "patient@edoc.com",
+      "password": "123",
+      "role": "patient",
+      "name": "Test Patient",
+      "phone": "0120000000",
+      "nic": "987654321V",
+      "dob": "2000-01-01",
+      "address": "24 Health Ave, Colombo, Sri Lanka",
+      "createdAt": "2026-10-24T16:49:09.051Z"
+    },
+    {
+      "id": "pat-2",
+      "email": "emhashenudara@gmail.com",
+      "password": "123",
+      "role": "patient",
+      "name": "Hashen Udara",
+      "phone": "0700000000",
+      "nic": "0110000000V",
+      "dob": "2002-06-03",
+      "address": "10 Temple Road, Colombo",
+      "createdAt": "2026-10-24T16:49:09.051Z"
+    },
+    {
+      "id": "user-1792861579759-m8xkr",
+      "createdAt": "2026-10-24T17:06:19.759Z",
+      "name": "Shivam",
+      "email": "shsi13092003@gmail.com",
+      "password": "$2a$10$CzcS4A7U/Ahgt9XM2BEbWO57ea.PmgWezUVeza/pvyNkDu5mZ.iHS",
+      "role": "doctor",
+      "phone": "1234567890",
+      "nic": "123569v",
+      "dob": "",
+      "address": "",
+      "specialtyId": 1,
+      "specialtyName": "Accident and emergency medicine"
+    },
+    {
+      "id": "user-1792861624530-3vzz5",
+      "createdAt": "2026-10-24T17:07:04.530Z",
+      "name": "Dr. Sarah Conner",
+      "email": "sarah@edoc.com",
+      "password": "$2a$10$tegXPXVUuuLzZETwm5HfienBRA0j5AgkLbZPsk0ODBcgwu0RocYNO",
+      "role": "doctor",
+      "phone": "0779998888",
+      "nic": "",
+      "dob": "",
+      "address": "",
+      "specialtyId": 5,
+      "specialtyName": "Cardiology"
+    },
+    {
+      "id": "user-1792861645502-xjkjx",
+      "createdAt": "2026-10-24T17:07:25.502Z",
+      "name": "Alex Morgan",
+      "email": "alex@example.com",
+      "password": "$2a$10$.Uz8kzNpUM7dFpNrWQfzp.gttaNSsK6iWK5z1d9/QVGrIWw0DOILy",
+      "role": "patient",
+      "phone": "0711122233",
+      "nic": "",
+      "dob": "",
+      "address": "Kandy, Sri Lanka"
+    }
+  ],
+  "specialties": [
+    {
+      "id": 1,
+      "sname": "Accident and emergency medicine"
+    },
+    {
+      "id": 2,
+      "sname": "Allergology"
+    },
+    {
+      "id": 3,
+      "sname": "Anaesthetics"
+    },
+    {
+      "id": 4,
+      "sname": "Biological hematology"
+    },
+    {
+      "id": 5,
+      "sname": "Cardiology"
+    },
+    {
+      "id": 6,
+      "sname": "Child psychiatry"
+    },
+    {
+      "id": 7,
+      "sname": "Clinical biology"
+    },
+    {
+      "id": 8,
+      "sname": "Clinical chemistry"
+    },
+    {
+      "id": 9,
+      "sname": "Clinical neurophysiology"
+    },
+    {
+      "id": 10,
+      "sname": "Clinical radiology"
+    },
+    {
+      "id": 11,
+      "sname": "Dental, oral and maxillo-facial surgery"
+    },
+    {
+      "id": 12,
+      "sname": "Dermato-venerology"
+    },
+    {
+      "id": 13,
+      "sname": "Dermatology"
+    },
+    {
+      "id": 14,
+      "sname": "Endocrinology"
+    },
+    {
+      "id": 15,
+      "sname": "Gastro-enterologic surgery"
+    },
+    {
+      "id": 16,
+      "sname": "Gastroenterology"
+    },
+    {
+      "id": 17,
+      "sname": "General hematology"
+    },
+    {
+      "id": 18,
+      "sname": "General Practice"
+    },
+    {
+      "id": 19,
+      "sname": "General surgery"
+    },
+    {
+      "id": 20,
+      "sname": "Geriatrics"
+    },
+    {
+      "id": 21,
+      "sname": "Immunology"
+    },
+    {
+      "id": 22,
+      "sname": "Infectious diseases"
+    },
+    {
+      "id": 23,
+      "sname": "Internal medicine"
+    },
+    {
+      "id": 24,
+      "sname": "Laboratory medicine"
+    },
+    {
+      "id": 25,
+      "sname": "Maxillo-facial surgery"
+    },
+    {
+      "id": 26,
+      "sname": "Microbiology"
+    },
+    {
+      "id": 27,
+      "sname": "Nephrology"
+    },
+    {
+      "id": 28,
+      "sname": "Neuro-psychiatry"
+    },
+    {
+      "id": 29,
+      "sname": "Neurology"
+    },
+    {
+      "id": 30,
+      "sname": "Neurosurgery"
+    },
+    {
+      "id": 31,
+      "sname": "Nuclear medicine"
+    },
+    {
+      "id": 32,
+      "sname": "Obstetrics and gynecology"
+    },
+    {
+      "id": 33,
+      "sname": "Occupational medicine"
+    },
+    {
+      "id": 34,
+      "sname": "Ophthalmology"
+    },
+    {
+      "id": 35,
+      "sname": "Orthopaedics"
+    },
+    {
+      "id": 36,
+      "sname": "Otorhinolaryngology"
+    },
+    {
+      "id": 37,
+      "sname": "Paediatric surgery"
+    },
+    {
+      "id": 38,
+      "sname": "Paediatrics"
+    },
+    {
+      "id": 39,
+      "sname": "Pathology"
+    },
+    {
+      "id": 40,
+      "sname": "Pharmacology"
+    },
+    {
+      "id": 41,
+      "sname": "Physical medicine and rehabilitation"
+    },
+    {
+      "id": 42,
+      "sname": "Plastic surgery"
+    },
+    {
+      "id": 43,
+      "sname": "Podiatric Medicine"
+    },
+    {
+      "id": 44,
+      "sname": "Podiatric Surgery"
+    },
+    {
+      "id": 45,
+      "sname": "Psychiatry"
+    },
+    {
+      "id": 46,
+      "sname": "Public health and Preventive Medicine"
+    },
+    {
+      "id": 47,
+      "sname": "Radiology"
+    },
+    {
+      "id": 48,
+      "sname": "Radiotherapy"
+    },
+    {
+      "id": 49,
+      "sname": "Respiratory medicine"
+    },
+    {
+      "id": 50,
+      "sname": "Rheumatology"
+    },
+    {
+      "id": 51,
+      "sname": "Stomatology"
+    },
+    {
+      "id": 52,
+      "sname": "Thoracic surgery"
+    },
+    {
+      "id": 53,
+      "sname": "Tropical medicine"
+    },
+    {
+      "id": 54,
+      "sname": "Urology"
+    },
+    {
+      "id": 55,
+      "sname": "Vascular surgery"
+    },
+    {
+      "id": 56,
+      "sname": "Venereology"
+    }
+  ],
+  "schedules": [
+    {
+      "id": "sched-1",
+      "docId": "doc-1",
+      "docName": "Dr. Test Doctor",
+      "specialtyName": "Cardiology",
+      "title": "General Cardiology Review",
+      "sessionDate": "2026-11-05",
+      "sessionTime": "18:00",
+      "maxAppointments": 25,
+      "bookedCount": 1,
+      "createdAt": "2026-10-24T16:49:09.051Z"
+    },
+    {
+      "id": "sched-2",
+      "docId": "doc-1",
+      "docName": "Dr. Test Doctor",
+      "specialtyName": "Cardiology",
+      "title": "Morning Heart Checkup",
+      "sessionDate": "2026-11-08",
+      "sessionTime": "09:30",
+      "maxAppointments": 20,
+      "bookedCount": 1,
+      "createdAt": "2026-10-24T16:49:09.051Z"
+    },
+    {
+      "id": "sched-1792861619274-3pz6f",
+      "bookedCount": 0,
+      "createdAt": "2026-10-24T17:06:59.274Z",
+      "docId": "user-1792861579759-m8xkr",
+      "docName": "Shivam",
+      "specialtyName": "Accident and emergency medicine",
+      "title": "OPD",
+      "sessionDate": "2026-10-24",
+      "sessionTime": "10:00",
+      "maxAppointments": 25
+    }
+  ],
+  "appointments": [
+    {
+      "id": "appo-1",
+      "scheduleId": "sched-1",
+      "scheduleTitle": "General Cardiology Review",
+      "docId": "doc-1",
+      "docName": "Dr. Test Doctor",
+      "patientId": "pat-1",
+      "patientName": "Test Patient",
+      "patientEmail": "patient@edoc.com",
+      "patientPhone": "0120000000",
+      "appointmentNumber": 1,
+      "appointmentDate": "2026-10-24",
+      "sessionDate": "2026-11-05",
+      "sessionTime": "18:00",
+      "status": "confirmed",
+      "createdAt": "2026-10-24T16:49:09.051Z"
+    },
+    {
+      "id": "appo-1792861042687-npbaq",
+      "status": "confirmed",
+      "createdAt": "2026-10-24T16:57:22.687Z",
+      "scheduleId": "sched-2",
+      "scheduleTitle": "Morning Heart Checkup",
+      "docId": "doc-1",
+      "docName": "Dr. Test Doctor",
+      "patientId": "pat-1",
+      "patientName": "Test Patient",
+      "patientEmail": "patient@edoc.com",
+      "patientPhone": "0120000000",
+      "appointmentNumber": 1,
+      "appointmentDate": "2026-10-24",
+      "sessionDate": "2026-11-08",
+      "sessionTime": "09:30"
+    }
+  ]
+}
